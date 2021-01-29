@@ -1,4 +1,4 @@
-import { SelectOption } from '../types'
+import type { SelectOption } from '../../components/Select'
 
 export const champions = {
   '-1': 'Unknown',

@@ -2,7 +2,7 @@ import Router from 'next/router'
 import { useEffect } from 'react'
 import useSWR from 'swr'
 
-import { IsAuthorized } from './validateSession'
+import type { IsAuthorized } from '../session'
 
 export interface UseAuthOptions {
   readonly redirectIfAuthorized?: boolean

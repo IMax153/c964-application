@@ -1,4 +1,4 @@
-import type { SelectOption } from './SelectOption'
+import type { SelectOption } from '../../components/Select'
 
 export interface BannedChampion {
   champion: SelectOption

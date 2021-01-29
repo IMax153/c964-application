@@ -2,7 +2,7 @@ import { pipe } from 'fp-ts/function'
 import type { TaskDecoder } from 'io-ts/TaskDecoder'
 import * as TD from 'io-ts/TaskDecoder'
 
-import type { SelectOption } from '../types'
+import type { SelectOption } from '../../components/Select'
 import { Integer } from './Integer'
 import { NumberFromString } from './NumberFromString'
 
