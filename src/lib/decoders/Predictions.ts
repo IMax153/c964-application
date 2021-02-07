@@ -10,7 +10,7 @@ const makePrediction = (predictedWinner: 'Red' | 'Blue'): Prediction => ({
 })
 
 const numberToPrediction = (n: number): Prediction =>
-  n < 0 ? makePrediction('Red') : makePrediction('Blue')
+  n < 0 ? makePrediction('Blue') : makePrediction('Red')
 
 export const Predictions = pipe(
   D.type({
