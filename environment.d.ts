@@ -1,5 +1,9 @@
 /// <reference types="node" />
 
+declare module 'jest-next-dynamic' {
+  export default (): Promise<void> => {}
+}
+
 declare namespace NodeJS {
   interface ProcessEnv {
     API_URL: string

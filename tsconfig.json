@@ -19,5 +19,5 @@
     "target": "esnext"
   },
   "exclude": ["node_modules"],
-  "include": ["src", "environment.d.ts", "next-env.d.ts"]
+  "include": ["src", "setupTests.ts", "environment.d.ts", "next-env.d.ts"]
 }

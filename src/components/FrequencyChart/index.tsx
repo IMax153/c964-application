@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   ReferenceLine,
   ResponsiveContainer,
+  ResponsiveContainerProps,
   Tooltip,
   XAxis,
   YAxis
@@ -24,9 +25,11 @@ export interface FrequencyChartProps {
   readonly id: string
   readonly filterPlaceholder: string
   readonly title: string
+  readonly containerProps?: Omit<ResponsiveContainerProps, 'children'>
 }
 
 export const FrequencyChart: React.FC<FrequencyChartProps> = ({
+  containerProps,
   data,
   filterCompare,
   filterOptions,
@@ -51,7 +54,7 @@ export const FrequencyChart: React.FC<FrequencyChartProps> = ({
       <Heading size="md" color="teal.500" mb={4} textAlign="center">
         {title}
       </Heading>
-      <ResponsiveContainer>
+      <ResponsiveContainer {...containerProps}>
         <BarChart data={counts}>
           <Brush dataKey="name" height={20} stroke="#8884d8" />
           <CartesianGrid />

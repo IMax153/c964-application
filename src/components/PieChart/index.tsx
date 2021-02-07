@@ -1,8 +1,15 @@
 import { Grid, Heading, Text } from '@chakra-ui/react'
 import { useState } from 'react'
-import { Pie, PieChart as RCPieChart, ResponsiveContainer, Sector } from 'recharts'
+import {
+  Pie,
+  PieChart as RCPieChart,
+  ResponsiveContainer,
+  ResponsiveContainerProps,
+  Sector
+} from 'recharts'
 
 export interface PieChartProps {
+  readonly containerProps?: Omit<ResponsiveContainerProps, 'children'>
   readonly data: Array<Record<string, any>>
   readonly dataKey: string
   readonly indexKey: string
@@ -87,7 +94,13 @@ const ActivePieSlice: React.FC<ActivePieSliceProps> = ({
   )
 }
 
-export const PieChart: React.FC<PieChartProps> = ({ data, dataKey, indexKey, title }) => {
+export const PieChart: React.FC<PieChartProps> = ({
+  containerProps,
+  data,
+  dataKey,
+  indexKey,
+  title
+}) => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const onPieEnter = (_: any, index: number) => {
@@ -100,7 +113,7 @@ export const PieChart: React.FC<PieChartProps> = ({ data, dataKey, indexKey, tit
         {title}
       </Heading>
 
-      <ResponsiveContainer>
+      <ResponsiveContainer {...containerProps}>
         <RCPieChart>
           <Pie
             z={1}

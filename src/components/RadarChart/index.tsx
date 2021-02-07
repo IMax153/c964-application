@@ -7,7 +7,8 @@ import {
   PolarRadiusAxis,
   Radar,
   RadarChart as RCRadarChart,
-  ResponsiveContainer
+  ResponsiveContainer,
+  ResponsiveContainerProps
 } from 'recharts'
 
 export interface RadarChartProps {
@@ -15,9 +16,16 @@ export interface RadarChartProps {
   readonly polarAngleKey: string
   readonly radars: ReadonlyArray<[key: string, color: string]>
   readonly title: string
+  readonly containerProps?: Omit<ResponsiveContainerProps, 'children'>
 }
 
-export const RadarChart: React.FC<RadarChartProps> = ({ data, polarAngleKey, radars, title }) => {
+export const RadarChart: React.FC<RadarChartProps> = ({
+  containerProps,
+  data,
+  polarAngleKey,
+  radars,
+  title
+}) => {
   const defaultValues = useMemo(() => radars.map(([key]) => key), [radars])
 
   const [checked, setChecked] = useState(defaultValues)
@@ -40,7 +48,7 @@ export const RadarChart: React.FC<RadarChartProps> = ({ data, polarAngleKey, rad
         </HStack>
       </CheckboxGroup>
 
-      <ResponsiveContainer>
+      <ResponsiveContainer {...containerProps}>
         <RCRadarChart data={data}>
           <PolarGrid />
           <PolarAngleAxis dataKey={polarAngleKey} />
